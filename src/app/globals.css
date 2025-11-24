@@ -1,14 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #EEEEEE;
-  --blue-500: #0B84FE;
+  --background: #eeeeee;
+  --blue-500: #0b84fe;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --font-sans: var(--font-rubik);
-  --font-mono: var(--font-source-sans-3);
+@theme {
+  --breakpoint-xs: 475px;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-xl: 1280px;
+  --breakpoint-2xl: 1536px;
+  --breakpoint-3xl: 1700px;
 }
 
 body {
@@ -40,4 +44,154 @@ b {
 
 p {
   margin-bottom: 0.2em;
+}
+
+.text-h1 {
+  font-size: 2.5em;
+  font-weight: 800;
+  font-family: var(--font-rubik);
+  line-height: 110%;
+}
+.text-h2 {
+  font-size: 1.6em;
+  font-family: var(--font-rubik);
+}
+.text-h3 {
+  font-size: 1.1em;
+  font-family: var(--font-rubik);
+}
+.text-body {
+  font-size: 1em;
+  font-weight: 600;
+}
+.text-bold {
+  font-weight: 600;
+}
+.text-light {
+  font-size: 0.9em;
+  font-weight: 400;
+}
+
+.text-header {
+  line-height: 150%;
+  font-weight: 600;
+  color: var(--color-emerald-500);
+  position: relative;
+  transition: color 0.2s;
+  &:hover {
+    color: var(--color-emerald-600);
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    border-radius: 0.2em;
+    height: 0.125em;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-emerald-500);
+    transform-origin: center;
+    transition: transform 0.2s, babckground-color 0.2s;
+  }
+  &:hover::after {
+    background-color: var(--color-emerald-600);
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+}
+.text-header-active::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0.125em;
+  transform: scaleX(1);
+  bottom: 0;
+  left: 0;
+  background-color: var(--color-emerald-500);
+}
+
+.container {
+  max-width: 1700px;
+  margin-inline: auto;
+  padding-left: 0.5rem;
+  width: 100%;
+  padding-right: 0.5rem;
+  /*outline: solid 2px red;*/
+}
+
+.header-glass {
+  backdrop-filter: blur(18px) saturate(101%);
+  -webkit-backdrop-filter: blur(18px) saturate(101%);
+  background-color: rgba(255, 255, 255, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+label {
+  cursor: text;
+}
+
+@keyframes float {
+  0% {
+    transform: translatey(0px);
+  }
+  50% {
+    transform: translatey(-10px);
+  }
+  100% {
+    transform: translatey(0px);
+  }
+}
+
+/* 3xl */
+@media (max-width: 1700px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
+/* 2xl */
+@media (max-width: 1536px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+/* xl */
+@media (max-width: 1280px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+/* lg */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 768px;
+  }
+  body {
+    font-size: 16px;
+  }
+}
+
+/* md */
+@media (max-width: 768px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+/* sm */
+@media (max-width: 640px) {
+  .container {
+    max-width: 475px;
+  }
+}
+
+/* xs */
+@media (max-width: 475px) {
+  .container {
+    width: 100%;
+  }
 }
