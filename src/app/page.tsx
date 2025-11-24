@@ -5,86 +5,100 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="bg-background">
-      <main className="">
-        {/* Header */}
+      {/* Header */}
 
-        <header className="glass-header w-[calc(100%-2.7em)] rounded-[2em] py-[0.95em] m-[1.35em] fixed top-0 left-0 right-0 z-50">
-          <nav className="container flex flex-row justify-between items-center">
-            <div className="w-full">
-              <Image
-                src="/logo-sonoris.png"
-                alt="Description"
-                width={252}
-                height={70}
-              />
-            </div>
-            <div className="flex gap-4 w-full">
-              <Link href="#section-sonoris" className="text-header">
-                Sonoris
-              </Link>
-              <Link href="#section-transcriber" className="text-header">
-                Transcritor
-              </Link>
-              <Link href="#section-app" className="text-header">
-                Aplicativo
-              </Link>
-              <Link href="#section-future" className="text-header">
-                Futuro da Sonoris
-              </Link>
-              <Link href="#section-credits" className="text-header">
-                Créditos
-              </Link>
-            </div>
-            <div className="w-full"></div>
-          </nav>
-        </header>
+      {/* TODO: Liquid Glass */}
+      <header className="glass-header w-[calc(100%-2.7em)] rounded-[2em] py-[0.95em] m-[1.35em] fixed top-0 left-0 right-0 z-50">
+        <nav className="container flex flex-row justify-between items-center">
+          <div className="w-[20%]">
+            <Image
+              src="/logo-sonoris.png"
+              alt="Description"
+              width={252}
+              height={70}
+            />
+          </div>
+          <div className="flex justify-center items-center gap-[1em] w-[60%]">
+            <Link href="#section-sonoris" className="text-header">
+              Sonoris
+            </Link>
+            <Link href="#section-transcriber" className="text-header">
+              Transcritor
+            </Link>
+            <Link href="#section-app" className="text-header">
+              Aplicativo
+            </Link>
+            <Link href="#section-future" className="text-header">
+              Futuro da Sonoris
+            </Link>
+            <Link href="#section-credits" className="text-header">
+              Créditos
+            </Link>
+          </div>
+          <div className="w-[20%]"></div>
+        </nav>
+      </header>
 
-        {/* Hero Section */}
+      {/* Hero Section */}
+      <section
+        id="section-sonoris"
+        className="bg-linear-to-t from-[#28B4C4] to-[#5898FF] h-[56em] flex relative justify-center pt-[11em] hero-section"
+      >
+        <div className="flex flex-col items-center">
+          {/* TODO: Gradiente nos textos*/}
+          <h1 className="text-[6em]! tracking-[0.125em] text-white font-semibold!">
+            Sonoris
+          </h1>
+          <h2 className="text-center text-[2.5em]! leading-[1.1em] text-white font-medium!">
+            {" "}
+            Transformando acessibilidade <br />
+            em produtividade
+          </h2>
+        </div>
+      </section>
+
+      <main className="px-[2em] pt-[5em] flex flex-col gap-[5em]">
         <section
-          id="section-sonoris"
-          className="bg-linear-to-t from-[#28B4C4] to-[#5898FF] h-[56em]"
+          id="section-transcriber"
+          className="bg-white p-[2em] rounded-[1em]"
         >
-          <h1>Sonoris</h1>
+          <div>
+            <h1 className="">Transcritor da Sonoris</h1>
+            <p>Dispositivo integrado que faz o trabalho para você.</p>
+          </div>
         </section>
-        <section id="section-transcriber">Transcritor</section>
-        <section id="section-app">Aplicativo</section>
-        <section id="section-future">Futuro da Sonoris</section>
-        <section id="section-credits">Créditos</section>
-        <h1>
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a v
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a v
-          <br />a
-          <br />a
-          <br />a v
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a
-          <br />a v
-        </h1>
+
+        <section
+          id="section-app"
+          className="flex bg-linear-to-t from-[#2890C4] to-[#327BF3] p-[2em] rounded-[1em] "
+        >
+          <div>
+            <h1>Aplicativo da Sonoris</h1>
+            <p>A ferramenta que faz a diferença.</p>
+
+            <div>
+              <div className="bg-white rounded-[1em] p-[1em] my-[1em]">
+                <b>Histórico de conversas. </b>
+                Reveja as suas conversas, organize-as e não perca nada.
+              </div>
+            </div>
+          </div>
+
+          <Image
+            src="/logo-sonoris.png"
+            alt="Description"
+            width={500}
+            height={140}
+          />
+        </section>
+
+        <section id="section-future">
+          <h1>O Futuro da Sonoris</h1>
+        </section>
+
+        <section id="section-credits">
+          <h1>Quem somos?</h1>
+        </section>
       </main>
     </div>
   );
