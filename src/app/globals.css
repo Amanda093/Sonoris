@@ -3,6 +3,8 @@
 :root {
   --background: #eeeeee;
   --blue-500: #0b84fe;
+  --blue-950: #172554;
+  --gray-700: #374151;
 }
 
 @theme {
@@ -75,7 +77,7 @@ p {
 .text-header {
   line-height: 150%;
   font-weight: 600;
-  color: var(--color-emerald-500);
+  color: var(--gray-700);
   position: relative;
   transition: color 0.2s;
   &:hover {
@@ -108,7 +110,7 @@ p {
   transform: scaleX(1);
   bottom: 0;
   left: 0;
-  background-color: var(--color-emerald-500);
+  background-color: var(--blue-950);
 }
 
 .container {
@@ -120,12 +122,12 @@ p {
   /*outline: solid 2px red;*/
 }
 
-.header-glass {
-  backdrop-filter: blur(18px) saturate(101%);
-  -webkit-backdrop-filter: blur(18px) saturate(101%);
-  background-color: rgba(255, 255, 255, 0.75);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.125);
+.glass-header{
+background: rgba(255, 255, 255, 0.82);
+box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+backdrop-filter: blur(9px);
+-webkit-backdrop-filter: blur(9px);
+border: 1px solid rgba(255, 255, 255, 0.88);
 }
 
 label {
