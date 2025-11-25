@@ -3,17 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { AnimatePresence, easeInOut, motion } from "motion/react";
 import GlassSurface from "../components/GlassSurface";
-import {
-  Globe,
-  Phone,
-  PlusCircle,
-  ScreenShare,
-  Smartphone,
-  Sparkle,
-  SparkleIcon,
-  SparklesIcon,
-  WholeWord,
-} from "lucide-react";
+import { Globe, PlusCircle, ScreenShare, Smartphone, SparklesIcon } from "lucide-react";
 import { useState } from "react";
 
 export default function Home() {
@@ -116,7 +106,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-background overflow-x-hidden">
+    <div className="bg-background overflow-x-hidden relative">
       {/* Header */}
 
       <motion.div
@@ -125,7 +115,7 @@ export default function Home() {
         animate={{ opacity: 1 }}
         className="w-[calc(100%-2.7em)] max-w-[1920px] fixed top-[1.35em] left-1/2 translate-x-[-50%] z-50">
         <GlassSurface
-          className="w-full! rounded-[1.5em]!  py-[0.6em]! h-fit! bg-white/80!"
+          className="w-full! rounded-[1.5em]!  py-[0.4em]! h-fit! bg-white/80!"
           saturation={1}
           blur={0}
           displace={4}>
@@ -155,23 +145,9 @@ export default function Home() {
         </GlassSurface>
       </motion.div>
       {/* Hero Section */}
-      {/* TODO: verificar responsividade do background */}
       <section
         id="section-sonoris"
-        className="bg-linear-to-t from-[#28B4C4] to-[#5898FF] h-[63em] flex absolute top-0 left-1/2 translate-x-[-50%] min-w-[250em] justify-center pt-[11em] hero-section">
-        <motion.div
-          className="flex flex-col items-center"
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          transition={{ ease: easeInOut, duration: 0.75 }}
-          animate={{ opacity: 1, filter: "none" }}>
-          <h1 className="text-[6em]! tracking-[0.125em] font-bold! text-transparent bg-linear-to-r from-[#FFFFFF] via-[#E0F9FF] to-[#FBFBFB] inline-block bg-clip-text">
-            Sonoris
-          </h1>
-          <h2 className="text-center text-[2.5em]! leading-[1.1em] text-white font-medium!">
-            Transformando acessibilidade <br />
-            em produtividade
-          </h2>
-        </motion.div>
+        className="bg-linear-to-t from-[#28B4C4] to-[#5898FF] h-[63em] max-w-dvw flex mx-auto w-full justify-center gap-[12em] overflow-hidden pt-[11em] hero-section absolute top-0 left-0">
         <motion.div
           initial={{ opacity: 0, transform: "translateY(200px)" }}
           transition={{ ease: easeInOut, duration: 1.25 }}
@@ -185,64 +161,82 @@ export default function Home() {
             height={1053}
           />
         </motion.div>
+
+        <div className="flex flex-col gap-[8em]">
+          <motion.div
+            className="flex flex-col items-center w-[15em]  rotate-[-4deg] animate-[float_5s_ease-in-out_infinite]"
+            initial={{ opacity: 0, filter: "blur(10px)" }}
+            transition={{ ease: easeInOut, duration: 0.75 }}
+            animate={{ opacity: 1, filter: "none" }}>
+            <Image
+              className="w-full"
+              src="/header/mensagens.png"
+              alt="Mensagens do aplicativo Sonoris"
+              width={353}
+              height={303}
+            />
+          </motion.div>
+
+          <motion.div
+            className="w-[30em] rotate-6  animate-[float_4s_ease-in-out_infinite]"
+            initial={{ opacity: 0, filter: "blur(10px)" }}
+            transition={{ ease: easeInOut, duration: 1.1 }}
+            animate={{ opacity: 1, filter: "none" }}>
+            <Image
+              className="w-full"
+              src="/header/conversas.png"
+              alt="Conversas do aplicativo Sonoris"
+              width={692}
+              height={686}
+            />
+          </motion.div>
+        </div>
         <motion.div
-          className="flex flex-col items-center w-[15em] absolute top-[10em] left-[calc(50%-20%)] rotate-[-4deg] translate-x-[-50%] animate-[float_5s_ease-in-out_infinite]"
+          className="flex flex-col items-center"
           initial={{ opacity: 0, filter: "blur(10px)" }}
           transition={{ ease: easeInOut, duration: 0.75 }}
           animate={{ opacity: 1, filter: "none" }}>
-          <Image
-            className="w-full"
-            src="/header/mensagens.png"
-            alt="Mensagens do aplicativo Sonoris"
-            width={353}
-            height={303}
-          />
+          <h1 className="text-[6em]! tracking-[0.125em] font-bold! text-transparent bg-linear-to-r from-[#FFFFFF] via-[#E0F9FF] to-[#FBFBFB] inline-block bg-clip-text">
+            Sonoris
+          </h1>
+          <h2 className="text-center text-[2.5em]! leading-[1.1em] text-white font-medium! text-nowrap">
+            Transformando acessibilidade <br />
+            em produtividade
+          </h2>
         </motion.div>
 
-        <motion.div
-          className="w-[30em] absolute top-[30em] left-[calc(50%-18%)] rotate-6 translate-x-[-50%] animate-[float_4s_ease-in-out_infinite]"
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          transition={{ ease: easeInOut, duration: 1.1 }}
-          animate={{ opacity: 1, filter: "none" }}>
-          <Image
-            className="w-full"
-            src="/header/conversas.png"
-            alt="Conversas do aplicativo Sonoris"
-            width={692}
-            height={686}
-          />
-        </motion.div>
+        <div className="flex flex-col gap-[8em]">
+          <motion.div
+            className="w-[27em] rotate-14 animate-[float_6s_ease-in-out_infinite]"
+            initial={{ opacity: 0, filter: "blur(10px)" }}
+            transition={{ ease: easeInOut, duration: 0.65 }}
+            animate={{ opacity: 1, filter: "none" }}>
+            <Image
+              className="w-full"
+              src="/header/ações rápidas.png"
+              alt="Ações rápidas do aplicativo Sonoris"
+              width={657}
+              height={338}
+            />
+          </motion.div>
 
-        <motion.div
-          className="w-[27em] absolute top-[12em] right-[calc(50%-18%)] rotate-14 translate-x-[50%] animate-[float_6s_ease-in-out_infinite]"
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          transition={{ ease: easeInOut, duration: 0.65 }}
-          animate={{ opacity: 1, filter: "none" }}>
-          <Image
-            className="w-full"
-            src="/header/ações rápidas.png"
-            alt="Ações rápidas do aplicativo Sonoris"
-            width={657}
-            height={338}
-          />
-        </motion.div>
-
-        <motion.div
-          className="w-[28em] absolute top-[32em] right-[calc(50%-18%)] -rotate-12 translate-x-[50%] animate-[float_7s_ease-in-out_infinite]"
-          initial={{ opacity: 0, filter: "blur(10px)" }}
-          transition={{ ease: easeInOut, duration: 0.95 }}
-          animate={{ opacity: 1, filter: "none" }}>
-          <Image
-            className="w-full"
-            src="/header/customização.png"
-            alt="Customização do aplicativo Sonoris"
-            width={657}
-            height={338}
-          />
-        </motion.div>
+          <motion.div
+            className="w-[28em] -rotate-12 animate-[float_7s_ease-in-out_infinite]"
+            initial={{ opacity: 0, filter: "blur(10px)" }}
+            transition={{ ease: easeInOut, duration: 0.95 }}
+            animate={{ opacity: 1, filter: "none" }}>
+            <Image
+              className="w-full"
+              src="/header/customização.png"
+              alt="Customização do aplicativo Sonoris"
+              width={657}
+              height={338}
+            />
+          </motion.div>
+        </div>
       </section>
 
-      <main className="px-[2em] flex flex-col gap-[5em] pt-[63em] max-w-[1920px] m-auto">
+      <main className="px-[2em] flex flex-col gap-[5em] pt-[63em] max-w-[1920px] m-auto pb-[8em]">
         {/* Transcriber Section */}
         <section
           id="section-transcriber"
@@ -465,7 +459,7 @@ export default function Home() {
                 }}
                 exit={{ opacity: 0, scale: 0.75 }}
                 style={{
-                  height: activeFutureSlide === 2 ? "25em" : "45em",
+                  height: activeFutureSlide === 2 ? "30em" : "40em",
                 }}
                 transition={{ duration: 0.3, ease: easeInOut }}>
                 <Image
@@ -513,7 +507,7 @@ export default function Home() {
         </section>
 
         {/* Credits */}
-        <section id="section-credits" className="">
+        <section id="section-credits" className="flex flex-col gap-[3em] z-10">
           <div className="flex flex-col text-center">
             <h1 className="text-transparent bg-linear-to-r from-[#324766] from-0% via-[#366f7e] via-50% to-[#324766] to-100% inline-block bg-clip-text">
               Quem somos?
@@ -521,24 +515,90 @@ export default function Home() {
             <b className="text-gray-700">O time por trás da Sonoris</b>
           </div>
 
-          {/* Card Amanda*/}
-          <div className="flex gap-[1.5em] aspect-5/7 ">
-            <div className="rounded-[3em] bg-blue-500">
-              <Image
-                className="w-full object-cover"
-                src="/fotos/foto1.jpg"
-                alt="Foto da desenvolvedora Amanda"
-                width={657}
-                height={338}
-              />
-              <div className="bg-gray-500 rounded-[3em] p-[1em]">
-                <b>Amanda Farias</b>
-                <p>Documentação & Front-end do aplicativo</p>
-              </div>
+          <div className="flex gap-[2.75em] justify-center">
+            {/* Card Amanda*/}
+            <div className="rounded-[3em] bg-[url('/credits/foto1.jpg')] bg-cover p-[1.2em] bg-center w-[32em] aspect-5/7 flex flex-col justify-end">
+              <GlassSurface
+                saturation={1}
+                blur={0}
+                displace={4}
+                className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] w-full! h-fit! text-white">
+                <div className="flex flex-col gap-[0.2em] w-full">
+                  <div>
+                    <b className="leading-[0.25em]">Amanda Farias</b>
+                    <p className="text-[1.3em]!">Documentação & Front-end do aplicativo</p>
+                  </div>
+                  <div className="flex gap-[1em]">
+                    <button className="rounded-full cursor-pointer hover:translate-y-[-0.2em] transition-all duration-200 p-[0.1em] bg-white aspect-square shrink-0 text-gray-800 size-[3em]">
+                      <a href="https://github.com/Amanda093">
+                        <Image className="w-full" src="/Github.png" alt="Github" width={512} height={512} />
+                      </a>
+                    </button>
+                    <button className="rounded-full cursor-pointer hover:translate-y-[-0.2em] transition-all duration-200 p-[0.1em] bg-white aspect-square shrink-0 text-gray-800 size-[3em]">
+                      <a href="https://www.linkedin.com/in/amanda-farias-4033932aa/">
+                        <Image className="w-full" src="/Linkedin.png" alt="Linkedin" width={512} height={512} />
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </GlassSurface>
+            </div>
+            <div className="rounded-[3em] bg-[url('/credits/foto2.jpg')] bg-cover p-[1.2em] bg-center w-[32em] aspect-5/7 flex flex-col justify-end">
+              <GlassSurface
+                saturation={1}
+                blur={0}
+                displace={4}
+                className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] w-full! h-fit! text-white">
+                <div className="flex flex-col gap-[0.2em] w-full">
+                  <div>
+                    <b className="leading-[0.25em]">Beatriz Silva</b>
+                    <p className="text-[1.3em]!">Back-end & conexão do aplicativo</p>
+                  </div>
+                  <div className="flex gap-[1em]">
+                    <button className="rounded-full cursor-pointer hover:translate-y-[-0.2em] transition-all duration-200 p-[0.1em] bg-white aspect-square shrink-0 text-gray-800 size-[3em]">
+                      <a href="https://github.com/Beatriz02020">
+                        <Image className="w-full" src="/Github.png" alt="Github" width={512} height={512} />
+                      </a>
+                    </button>
+                    {/*<button className="rounded-full cursor-pointer hover:translate-y-[-0.2em] transition-all duration-200 p-[0.1em] bg-white aspect-square shrink-0 text-gray-800 size-[3em]">
+                      <a href="">
+                        <Image className="w-full" src="/Linkedin.png" alt="Linkedin" width={512} height={512} />
+                      </a>
+                    </button> */}
+                  </div>
+                </div>
+              </GlassSurface>
+            </div>
+            <div className="rounded-[3em] bg-[url('/credits/foto3.jpg')] bg-cover p-[1.2em] bg-center w-[32em] aspect-5/7 flex flex-col justify-end">
+              <GlassSurface
+                saturation={1}
+                blur={0}
+                displace={4}
+                className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] w-full! h-fit! text-white">
+                <div className="flex flex-col gap-[0.2em] w-full">
+                  <div>
+                    <b className="leading-[0.25em]">Carlos Henrique</b>
+                    <p className="text-[1.3em]!">Modelagem, Design & Transcritor</p>
+                  </div>
+                  <div className="flex gap-[1em]">
+                    <button className="rounded-full cursor-pointer hover:translate-y-[-0.2em] transition-all duration-200 p-[0.1em] bg-white aspect-square shrink-0 text-gray-800 size-[3em]">
+                      <a href="https://github.com/Chrb09">
+                        <Image className="w-full" src="/Github.png" alt="Github" width={512} height={512} />
+                      </a>
+                    </button>
+                    <button className="rounded-full cursor-pointer hover:translate-y-[-0.2em] transition-all duration-200 p-[0.1em] bg-white aspect-square shrink-0 text-gray-800 size-[3em]">
+                      <a href="https://www.linkedin.com/in/carlos-henrique-rodrigues-barile-4953932aa/">
+                        <Image className="w-full" src="/Linkedin.png" alt="Linkedin" width={512} height={512} />
+                      </a>
+                    </button>
+                  </div>
+                </div>
+              </GlassSurface>
             </div>
           </div>
         </section>
       </main>
+      <div className="bg-linear-to-b from-[#232F57] to-[#14242C] absolute bottom-0 left-0 w-full h-[18em]" />
     </div>
   );
 }

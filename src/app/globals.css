@@ -25,6 +25,8 @@
 body {
   background: var(--background);
   overflow-x: hidden;
+  color: var(--color-gray-900);
+  font-size: 0.8em;
 }
 
 h1 {
@@ -51,14 +53,12 @@ b {
 
 strong {
   font-weight: 600;
-  color: var(--color-gray-900);
 }
 
 p {
   font-size: 1.75em;
   font-weight: 400;
   font-family: var(--font-source-sans-3);
-  color: var(--color-gray-900);
   margin-bottom: 0.2em;
 }
 
@@ -109,8 +109,9 @@ p {
 }
 
 /* TODO: Deixar responsivo */
+
 .hero-section {
-  clip-path: ellipse(35% 90% at 50% 0%);
+  clip-path: ellipse(90em 90% at 50% 0%);
 }
 
 label {
