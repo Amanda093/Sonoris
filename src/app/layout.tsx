@@ -17,8 +17,8 @@ const sourceSans3 = Source_Sans_3({
 });
 
 export const metadata: Metadata = {
-  title: "Sonoris Website",
-  description: "Website do projeto Sonoris",
+  title: "Sonoris | Transcrição de Áudio",
+  description: "Site da Sonoris",
 };
 
 export default function RootLayout({
