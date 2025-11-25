@@ -1,10 +1,120 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { easeInOut, motion } from "motion/react";
+import { AnimatePresence, easeInOut, motion } from "motion/react";
 import GlassSurface from "../components/GlassSurface";
+import {
+  Globe,
+  Phone,
+  PlusCircle,
+  ScreenShare,
+  Smartphone,
+  Sparkle,
+  SparkleIcon,
+  SparklesIcon,
+  WholeWord,
+} from "lucide-react";
+import { useState } from "react";
 
 export default function Home() {
+  const [activeTranscriberSlide, setActiveTranscriberSlide] = useState(0);
+
+  const transcriberSlides = [
+    {
+      image: "/transcriber/Sonoris1.png",
+      width: 1570,
+      height: 882,
+      title: "Transcrição em tempo real.",
+      description: "De forma Offline no dispositivo, capture a voz de todos ao seu redor.",
+    },
+    {
+      image: "/transcriber/Sonoris2.png",
+      width: 1439,
+      height: 1045,
+      title: "Customização das legendas.",
+      description: "Customize as legendas pelo aplicativo e deixe acessível do seu jeito.",
+    },
+    {
+      image: "/transcriber/Sonoris3.png",
+      width: 643,
+      height: 567,
+      title: "Histórico e separação de conversas.",
+      description: "Veja o que você perdeu pelo histórico e inicie novas conversas quando quiser.",
+    },
+    {
+      image: "/transcriber/Sonoris4.png",
+      width: 636,
+      height: 547,
+      title: "Modo Privado.",
+      description: "Mantenha aquelas conversas privadas apenas no momento com um clique.",
+    },
+  ];
+
+  const [activeAppSlide, setActiveAppSlide] = useState(0);
+
+  const appSlides = [
+    {
+      image: "/app/Sonoris1.png",
+      width: 1683,
+      height: 1716,
+      title: "Histórico de conversas.",
+      description: "Reveja as suas conversas, organize-as e não perca nada.",
+    },
+    {
+      image: "/app/Sonoris2.png",
+      width: 1683,
+      height: 1716,
+      title: "Respostas Rápidas.",
+      description: "Responda com facilidade as pessoas, mesmo quando você não consegue falar. ",
+    },
+    {
+      image: "/app/Sonoris3.png",
+      width: 1683,
+      height: 1716,
+      title: "Salvamento na nuvem.",
+      description: "Todas suas preferencias e conversas em qualquer dispositivo, não perca nada.",
+    },
+  ];
+
+  const [activeFutureSlide, setActiveFutureSlide] = useState(0);
+
+  const futureSlides = [
+    {
+      image: "/future/Sonoris1.png",
+      width: 800,
+      height: 1716,
+      title: "Transcrição no Aplicativo",
+      description:
+        "Utilize a Sonoris apenas com seu celular, transcrevendo pelo próprio aplicativo, com todas as funções.",
+      icon: Smartphone,
+    },
+    {
+      image: "/future/Sonoris2.png",
+      width: 800,
+      height: 1716,
+      title: "Múltiplas Línguas",
+      description: "Fale com qualquer pessoa, em qualquer lingua e traduza em tempo real.",
+      icon: Globe,
+    },
+    {
+      image: "/future/Sonoris3.png",
+      width: 801,
+      height: 357,
+      title: "Integração com I.A.",
+      description:
+        "Organização de conversas, descrição automática e transcrição impecável com integração de inteligência artificial.",
+      icon: SparklesIcon,
+    },
+    {
+      image: "/future/Sonoris4.png",
+      width: 581,
+      height: 456,
+      title: "Melhorias no Transcritor",
+      description: "Design portátil, com transcrição mais rápida e menos erros vindo para o transcritor.",
+      icon: ScreenShare,
+    },
+  ];
+
   return (
     <div className="bg-background overflow-x-hidden">
       {/* Header */}
@@ -136,47 +246,100 @@ export default function Home() {
         {/* Transcriber Section */}
         <section
           id="section-transcriber"
-          className="bg-white flex gap-[5em] justify-center px-[5em] py-[5em] rounded-[1em] text-right">
-          <div className="w-[45%]">
-            <Image className="w-full" src="/transcriptor/Sonoris1.png" alt="Description" width={500} height={120} />
+          className="bg-white flex gap-[5em] justify-center items-center px-[5em] h-[47em] rounded-[3.5em] text-right relative">
+          <div className="w-[45%] flex flex-col justify-center items-center gap-[1.5em]">
+            {/* Imagem do carrossel */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeTranscriberSlide}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.25, ease: easeInOut }}
+                className="w-[40em]">
+                <Image
+                  className="w-full"
+                  src={transcriberSlides[activeTranscriberSlide].image}
+                  alt="Description"
+                  width={transcriberSlides[activeTranscriberSlide].width}
+                  height={transcriberSlides[activeTranscriberSlide].height}
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="flex gap-[1em] absolute bottom-[3em]">
+              {transcriberSlides.map((_, index) => (
+                <div
+                  key={index}
+                  className={`${
+                    index === activeTranscriberSlide ? "h-[0.75em] w-[2em] bg-blue-500" : "size-[0.75em] bg-gray-500"
+                  } rounded-full transition-all duration-300`}
+                />
+              ))}
+            </div>
           </div>
 
           <div className="w-[45%] flex flex-col gap-[2em]">
             <div className="flex flex-col">
-              <h1 className="text-transparent bg-linear-to-r from-[#142E50] from-0% via-[#1D5765] via-50% to-[#142E50] to-100% inline-block bg-clip-text">
+              <h1 className="text-transparent bg-linear-to-r from-[#324766] from-0% via-[#366f7e] via-50% to-[#324766] to-100% inline-block bg-clip-text">
                 Transcritor da Sonoris
               </h1>
               <b className="text-gray-700 ">Dispositivo integrado que faz o trabalho para você.</b>
             </div>
 
-            <div className="flex flex-col gap-[1em] text-left text-gray-800">
-              <div className="bg-white-500 rounded-[2.5em] px-[2em] py-[0.5em] my-[1em] shadow-2xl">
-                <p>
-                  <strong>Transcrição em tempo real. </strong> De forma Offline no dispositivo, capture a voz de todos
-                  ao seu redor.
-                </p>
-              </div>
+            <div className="flex flex-col gap-[1.5em] text-left text-gray-800 h-[30em]">
+              {transcriberSlides.map((slide, index) => (
+                <motion.button
+                  animate={{ paddingLeft: index === activeTranscriberSlide ? "2em" : "5.5em" }}
+                  key={index}
+                  onClick={() => setActiveTranscriberSlide(index)}
+                  transition={{ duration: 0.2, ease: easeInOut }}
+                  style={{
+                    paddingLeft: index !== activeTranscriberSlide ? "5.5em" : "2em",
+                  }}
+                  className={`bg-white/80 cursor-pointer rounded-[2.5em] pr-[2em] py-[1em] shadow-2xl/20 flex gap-[1.5em] items-center text-left relative overflow-hidden`}>
+                  <AnimatePresence mode="wait">
+                    {index !== activeTranscriberSlide && (
+                      <motion.div
+                        key="icon"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.5 }}
+                        transition={{ duration: 0.3, ease: easeInOut }}
+                        className="absolute left-[2em] top-1/2 -translate-y-1/2">
+                        <PlusCircle className="text-gray-800 size-[2.5em] shrink-0" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
 
-              <div className="bg-white-500 rounded-[2.5em] px-[2em] py-[0.5em] my-[1em] shadow-2xl flex">
-                icon
-                <p>
-                  <strong>Customização das legendas. </strong>
-                </p>
-              </div>
-
-              <div className="bg-white-500 rounded-[2.5em] px-[2em] py-[0.5em] my-[1em] shadow-2xl">
-                <p>
-                  <strong>Transcrição em tempo real. </strong> De forma Offline no dispositivo, capture a voz de todos
-                  ao seu redor.
-                </p>
-              </div>
-
-              <div className="bg-white-500 rounded-[2.5em] px-[2em] py-[0.5em] my-[1em] shadow-2xl">
-                <p>
-                  <strong>Transcrição em tempo real. </strong> De forma Offline no dispositivo, capture a voz de todos
-                  ao seu redor.
-                </p>
-              </div>
+                  <AnimatePresence mode="wait">
+                    {index === activeTranscriberSlide ? (
+                      <motion.p
+                        initial={{ height: 0 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.3, ease: easeInOut }}>
+                        <strong>{slide.title} </strong>
+                        <motion.span
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3, ease: easeInOut }}>
+                          {slide.description}
+                        </motion.span>
+                      </motion.p>
+                    ) : (
+                      <motion.p
+                        initial={{ height: 0 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.3, ease: easeInOut }}>
+                        <strong>{slide.title} </strong>
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              ))}
             </div>
           </div>
         </section>
@@ -184,51 +347,195 @@ export default function Home() {
         {/* App Section */}
         <section
           id="section-app"
-          className="flex justify-center bg-linear-to-t from-[#2890C4] to-[#327BF3] p-[2em] rounded-[1em] ">
-          <div>
-            <h1 className=" text-transparent bg-linear-to-r from-[#FFFFFF] via-[#E0F9FF] to-[#FBFBFB] inline-block bg-clip-text">
-              Aplicativo da Sonoris
-            </h1>
-            <p className="text-white">A ferramenta que faz a diferença.</p>
+          className="bg-linear-to-b from-[#327BF3] to-[#2890C4] flex gap-[5em] justify-center items-center px-[5em] h-[60em] rounded-[3.5em] text-left relative">
+          <div className="w-[45%] flex flex-col gap-[2em]">
+            <div className="flex flex-col">
+              <h1 className="text-transparent bg-linear-to-r from-[#FFFFFF] via-[#E0F9FF] to-[#FBFBFB] to-100% inline-block bg-clip-text">
+                Aplicativo da Sonoris
+              </h1>
+              <b className="text-slate-200 font-light!">A ferramenta que faz a diferença.</b>
+            </div>
 
-            <div>
-              <div className="bg-white p-[1em] my-[1em]">
-                <b>Histórico de conversas. </b>
-                Reveja as suas conversas, organize-as e não perca nada.
-              </div>
+            <div className="flex flex-col gap-[1.5em] text-left text-gray-800 h-[30em]">
+              {appSlides.map((slide, index) => (
+                <motion.button
+                  animate={{ paddingLeft: index === activeAppSlide ? "2em" : "5.5em" }}
+                  key={index}
+                  onClick={() => setActiveAppSlide(index)}
+                  transition={{ duration: 0.2, ease: easeInOut }}
+                  style={{
+                    paddingLeft: index !== activeAppSlide ? "5.5em" : "2em",
+                  }}
+                  className={`bg-white/80 cursor-pointer rounded-[2.5em] pr-[2em] py-[1em] shadow-2xl/20 flex gap-[1.5em] items-center text-left relative overflow-hidden`}>
+                  <AnimatePresence mode="wait">
+                    {index !== activeAppSlide && (
+                      <motion.div
+                        key="icon"
+                        initial={{ opacity: 0, scale: 0.5 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.5 }}
+                        transition={{ duration: 0.3, ease: easeInOut }}
+                        className="absolute left-[2em] top-1/2 -translate-y-1/2">
+                        <PlusCircle className="text-gray-800 size-[2.5em] shrink-0" />
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+
+                  <AnimatePresence mode="wait">
+                    {index === activeAppSlide ? (
+                      <motion.p
+                        initial={{ height: 0 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.3, ease: easeInOut }}>
+                        <strong>{slide.title} </strong>
+                        <motion.span
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3, ease: easeInOut }}>
+                          {slide.description}
+                        </motion.span>
+                      </motion.p>
+                    ) : (
+                      <motion.p
+                        initial={{ height: 0 }}
+                        animate={{ height: "auto" }}
+                        exit={{ height: 0 }}
+                        transition={{ duration: 0.3, ease: easeInOut }}>
+                        <strong>{slide.title} </strong>
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </motion.button>
+              ))}
             </div>
           </div>
 
-          <Image src="/aplicativo.png" alt="Description" width={500} height={140} />
-        </section>
+          <div className="w-[45%] flex flex-col justify-center items-center gap-[1.5em]">
+            {/* Imagem do carrossel */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeAppSlide}
+                initial={{ opacity: 0, x: -50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: 50 }}
+                transition={{ duration: 0.25, ease: easeInOut }}
+                className="w-[42em]">
+                <Image
+                  className="w-full"
+                  src={appSlides[activeAppSlide].image}
+                  alt="Description"
+                  width={appSlides[activeAppSlide].width}
+                  height={appSlides[activeAppSlide].height}
+                />
+              </motion.div>
+            </AnimatePresence>
 
-        <section id="section-future">
-          <div className="flex flex-col justify-center">
-            <h1 className="text-transparent bg-linear-to-r from-[#142E50] from-0% via-[#1D5765] via-50% to-[#142E50] to-100% inline-block bg-clip-text">
-              O Futuro da Sonoris
-            </h1>
-            <b className="text-gray-700">Estamos sempre melhorando, veja o que está por vir.</b>
-
-            <Image src="/aplicativo.png" alt="Description" width={500} height={140} />
-
-            <b className="text-gray-700">
-              Utilize a Sonoris apenas com seu celular, transcrevendo <br />
-              pelo próprio aplicativo, com todas as funções.
-            </b>
+            <div className="flex gap-[1em] absolute bottom-[5em]">
+              {appSlides.map((_, index) => (
+                <div
+                  key={index}
+                  className={`${
+                    index === activeAppSlide ? "h-[0.75em] w-[2em] bg-gray-800" : "size-[0.75em] bg-white"
+                  } rounded-full transition-all duration-300`}
+                />
+              ))}
+            </div>
           </div>
         </section>
 
+        {/* Future of Sonoris */}
+        <section id="section-future">
+          <div className="flex flex-col justify-center items-center gap-[2em]">
+            <div className="flex flex-col text-center">
+              <h1 className="text-transparent bg-linear-to-r from-[#324766] from-0% via-[#366f7e] via-50% to-[#324766] to-100% inline-block bg-clip-text">
+                O Futuro da Sonoris
+              </h1>
+              <b className="text-gray-700">Estamos sempre melhorando, veja o que está por vir.</b>
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={activeFutureSlide}
+                initial={{ opacity: 0, scale: 0.75 }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                exit={{ opacity: 0, scale: 0.75 }}
+                style={{
+                  height: activeFutureSlide === 2 ? "25em" : "45em",
+                }}
+                transition={{ duration: 0.3, ease: easeInOut }}>
+                <Image
+                  className="h-full w-auto object-contain"
+                  src={futureSlides[activeFutureSlide].image}
+                  alt="Description"
+                  width={futureSlides[activeFutureSlide].width}
+                  height={futureSlides[activeFutureSlide].height}
+                />
+              </motion.div>
+            </AnimatePresence>
+
+            <div className="flex bg-slate-200 rounded-[2em]">
+              {futureSlides.map((slide, index) => {
+                const Icon = slide.icon;
+                return (
+                  <motion.button
+                    key={index}
+                    onClick={() => setActiveFutureSlide(index)}
+                    animate={{
+                      backgroundColor: index === activeFutureSlide ? "#374151" : "transparent",
+                      color: index === activeFutureSlide ? "#ffffff" : "#6b7280",
+                    }}
+                    transition={{ duration: 0.3, ease: easeInOut }}
+                    className="text-[1.5em] cursor-pointer font-semibold flex flex-col items-center leading-[1.2em] w-[8.8em] rounded-[1.2em] px-[1em] py-[0.5em]">
+                    <Icon className="size-[1.65em] shrink-0" />
+                    {slide.title}
+                  </motion.button>
+                );
+              })}
+            </div>
+
+            <AnimatePresence mode="wait">
+              <motion.b
+                key={activeFutureSlide}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
+                transition={{ duration: 0.3, ease: easeInOut }}
+                className="text-gray-700 text-center max-w-[27em]">
+                {futureSlides[activeFutureSlide].description}
+              </motion.b>
+            </AnimatePresence>
+          </div>
+        </section>
+
+        {/* Credits */}
         <section id="section-credits" className="">
           <div className="flex flex-col text-center">
-            <h1 className="text-transparent bg-linear-to-r from-[#142E50] from-0% via-[#1D5765] via-50% to-[#142E50] to-100% inline-block bg-clip-text">
+            <h1 className="text-transparent bg-linear-to-r from-[#324766] from-0% via-[#366f7e] via-50% to-[#324766] to-100% inline-block bg-clip-text">
               Quem somos?
             </h1>
-            <b className="text-gray-700">O Time por trás da Sonoris</b>
+            <b className="text-gray-700">O time por trás da Sonoris</b>
           </div>
+
           {/* Card Amanda*/}
-          <div className="bg-gray-500 rounded-[3em] p-[1em]">
-            <b>Amanda Farias</b>
-            <p>Documentação & Front-end do aplicativo</p>
+          <div className="flex gap-[1.5em] aspect-5/7 ">
+            <div className="rounded-[3em] bg-blue-500">
+              <Image
+                className="w-full object-cover"
+                src="/fotos/foto1.jpg"
+                alt="Foto da desenvolvedora Amanda"
+                width={657}
+                height={338}
+              />
+              <div className="bg-gray-500 rounded-[3em] p-[1em]">
+                <b>Amanda Farias</b>
+                <p>Documentação & Front-end do aplicativo</p>
+              </div>
+            </div>
           </div>
         </section>
       </main>
