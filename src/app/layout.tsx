@@ -28,9 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-br">
-      <body className={`${rubik.variable} ${sourceSans3.variable} antialiased`}>
-        {children}
-      </body>
+      <body className={`${rubik.variable} ${sourceSans3.variable} antialiased overflow-x-hidden`}>{children}</body>
     </html>
   );
 }
