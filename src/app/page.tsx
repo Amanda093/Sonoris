@@ -545,11 +545,7 @@ export default function Home() {
           <div className="flex gap-[2.75em] justify-center max-lg:flex-col max-lg:items-center max-xs:px-[1em] max-xs:gap-[2em] max-xs:bg-linear-to-b max-xs:from-[#232F57] max-xs:to-[#14242C] max-xs:py-[2.5em]">
             {/* Card Amanda*/}
             <div className="rounded-[3em] bg-[url('/credits/foto1.jpg')] bg-cover p-[1.2em] max-xl:p-[0.9em] bg-center w-[32em] aspect-5/7 flex flex-col justify-end max-xs:w-full ">
-              <GlassSurface
-                saturation={1}
-                blur={0}
-                displace={4}
-                className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] max-xl:p-[0.7em] w-full! h-fit! text-white">
+              <div className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] w-full! h-fit! text-white">
                 <div className="flex flex-col gap-[0.2em] w-full">
                   <div>
                     <b className="leading-[0.25em]">Amanda Farias</b>
@@ -568,14 +564,10 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-              </GlassSurface>
+              </div>
             </div>
             <div className="rounded-[3em] bg-[url('/credits/foto2.jpg')] bg-cover p-[1.2em] max-xl:p-[0.9em] bg-center w-[32em] aspect-5/7 flex flex-col justify-end max-xs:w-full ">
-              <GlassSurface
-                saturation={1}
-                blur={0}
-                displace={4}
-                className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] max-xl:p-[0.7em] w-full! h-fit! text-white">
+              <div className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] w-full! h-fit! text-white">
                 <div className="flex flex-col gap-[0.2em] w-full">
                   <div>
                     <b className="leading-[0.25em]">Beatriz Silva</b>
@@ -594,14 +586,10 @@ export default function Home() {
                     </button> */}
                   </div>
                 </div>
-              </GlassSurface>
+              </div>
             </div>
             <div className="rounded-[3em] bg-[url('/credits/foto3.jpg')] bg-cover p-[1.2em] max-xl:p-[0.9em] bg-center w-[32em] aspect-5/7 flex flex-col justify-end max-xs:w-full ">
-              <GlassSurface
-                saturation={1}
-                blur={0}
-                displace={4}
-                className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] max-xl:p-[0.7em] w-full! h-fit! text-white">
+              <div className="bg-[#374151]/80! rounded-[1.5em]! p-[1.5em] w-full! h-fit! text-white">
                 <div className="flex flex-col gap-[0.2em] w-full">
                   <div>
                     <b className="leading-[0.25em]">Carlos Henrique</b>
@@ -620,7 +608,7 @@ export default function Home() {
                     </button>
                   </div>
                 </div>
-              </GlassSurface>
+              </div>
             </div>
           </div>
         </motion.section>
