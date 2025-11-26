@@ -106,7 +106,7 @@ export default function Home() {
   ];
 
   return (
-    <div className="bg-background overflow-x-hidden relative">
+    <div className="bg-background overflow-x-hidden relative max-md:text-[0.9em] max-sm:text-[0.8em] max-xs:text-[0.75em]">
       {/* Header */}
 
       <motion.div
@@ -246,7 +246,7 @@ export default function Home() {
         </div>
       </section>
 
-      <main className="px-[2em] flex flex-col gap-[5em] pt-[63em] max-w-[1920px] m-auto pb-[8em] container  max-xl:gap-[3em] max-xl:text-[0.9em] max-xl:pt-[68em] max-lg:pt-[60em] max-sm:text-[0.8em] max-sm:pt-[70em] max-xs:px-0!">
+      <main className="px-[2em] flex flex-col gap-[5em] pt-[63em] max-w-[1920px] m-auto pb-[8em] container  max-xl:gap-[3em] max-xl:text-[0.9em] max-xl:pt-[68em] max-lg:pt-[60em] max-sm:text-[0.8em] max-sm:pt-[70em] max-xs:px-0! max-xs:pb-0">
         {/* Transcriber Section */}
         <motion.section
           initial={{ opacity: 0, x: -100 }}
@@ -254,7 +254,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: easeInOut }}
           id="section-transcriber"
-          className="bg-white scroll-m-[6.5em] flex gap-[5em] justify-center items-center px-[5em] h-[47em] rounded-[3.5em] text-right relative max-xl:px-[1em] max-lg:flex-col max-lg:h-[74em] max-sm:h-[80em] max-xs:h-fit max-xs:py-[2em] max-xs:px-[0.25em]">
+          className="bg-white scroll-m-[6.5em] flex gap-[5em] justify-center items-center px-[5em] h-[47em] rounded-[3.5em] text-right relative max-xl:px-[1em] max-lg:flex-col max-lg:h-[74em] max-sm:h-[80em] max-xs:h-fit max-xs:py-[2em] max-xs:px-[1em] max-xs:rounded-none">
           <div className="w-[45%] flex flex-col justify-center items-center gap-[1.5em] max-lg:w-full max-lg:relative max-lg:h-[38em] max-sm:h-[25em] max-xs:h-fit">
             {/* Imagem do carrossel */}
             <AnimatePresence mode="wait">
@@ -359,7 +359,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: easeInOut }}
           id="section-app"
-          className="bg-linear-to-b from-[#327BF3] to-[#2890C4] flex gap-[5em] justify-center items-center px-[5em] h-[60em] rounded-[3.5em] text-left relative  max-xl:px-[1em]  max-lg:flex-col-reverse max-lg:h-[75em] max-xs:h-fit max-xs:py-[2em] max-xs:px-[0.25em]">
+          className="bg-linear-to-b from-[#327BF3] to-[#2890C4] flex gap-[5em] justify-center items-center px-[5em] h-[60em] rounded-[3.5em] text-left relative  max-xl:px-[1em]  max-lg:flex-col-reverse max-lg:h-[75em] max-xs:h-fit max-xs:py-[2em] max-xs:px-[1em] max-xs:rounded-none">
           <div className="w-[45%] flex flex-col gap-[2em] max-lg:w-full text-center">
             <div className="flex flex-col">
               <h1 className="text-transparent bg-linear-to-r from-[#FFFFFF] via-[#E0F9FF] to-[#FBFBFB] to-100% inline-block bg-clip-text">
@@ -464,7 +464,7 @@ export default function Home() {
           viewport={{ once: true }}
           transition={{ duration: 1, ease: easeInOut }}
           id="section-future"
-          className="scroll-m-[9em] max-md:scroll-m-[13.5em]">
+          className="scroll-m-[9em] max-md:scroll-m-[13.5em] max-xs:px-[1em]">
           <div className="flex flex-col justify-center items-center gap-[2em]">
             <div className="flex flex-col text-center">
               <h1 className="text-transparent bg-linear-to-r from-[#324766] from-0% via-[#366f7e] via-50% to-[#324766] to-100% inline-block bg-clip-text">
@@ -542,7 +542,7 @@ export default function Home() {
             <b className="text-gray-700">O time por trás da Sonoris</b>
           </div>
 
-          <div className="flex gap-[2.75em] justify-center max-lg:flex-col max-lg:items-center">
+          <div className="flex gap-[2.75em] justify-center max-lg:flex-col max-lg:items-center max-xs:px-[1em] max-xs:gap-[2em] max-xs:bg-linear-to-b max-xs:from-[#232F57] max-xs:to-[#14242C] max-xs:py-[2.5em]">
             {/* Card Amanda*/}
             <div className="rounded-[3em] bg-[url('/credits/foto1.jpg')] bg-cover p-[1.2em] max-xl:p-[0.9em] bg-center w-[32em] aspect-5/7 flex flex-col justify-end max-xs:w-full ">
               <GlassSurface
