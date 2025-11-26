@@ -114,11 +114,7 @@ export default function Home() {
         transition={{ ease: easeInOut, duration: 1.25 }}
         animate={{ opacity: 1 }}
         className="w-[calc(100%-2.7em)] max-w-[1920px] fixed top-[1.35em] left-1/2 translate-x-[-50%] z-50 max-sm:hidden">
-        <GlassSurface
-          className="w-full! rounded-[1.5em]!  py-[0.4em]! h-fit! bg-white/80!"
-          saturation={1}
-          blur={0}
-          displace={4}>
+        <header className="w-full! rounded-[1.5em]!  py-[0.4em]! h-fit! bg-white/85! shadow-2xl">
           <nav className="container flex flex-row justify-between items-center max-md:flex-col max-md:gap-[1em]">
             <div className="w-[20%]  select-none  max-md:w-[20em] max-md:flex max-md:justify-center">
               <a href="/">
@@ -144,7 +140,7 @@ export default function Home() {
             </div>
             <div className="w-[20%] max-lg:hidden"></div>
           </nav>
-        </GlassSurface>
+        </header>
       </motion.div>
       {/* Hero Section */}
       <section
@@ -271,9 +267,15 @@ export default function Home() {
                   alt="Description"
                   width={transcriberSlides[activeTranscriberSlide].width}
                   height={transcriberSlides[activeTranscriberSlide].height}
+                  priority={activeTranscriberSlide === 0}
                 />
               </motion.div>
             </AnimatePresence>
+            {/* Preload das outras imagens */}
+            {transcriberSlides.map(
+              (slide, index) =>
+                index !== activeTranscriberSlide && <link key={index} rel="preload" as="image" href={slide.image} />
+            )}
 
             <div className="flex gap-[1em] absolute bottom-[3em] max-lg:bottom-[-2em]">
               {transcriberSlides.map((_, index) => (
@@ -440,9 +442,15 @@ export default function Home() {
                   alt="Description"
                   width={appSlides[activeAppSlide].width}
                   height={appSlides[activeAppSlide].height}
+                  priority={activeAppSlide === 0}
                 />
               </motion.div>
             </AnimatePresence>
+            {/* Preload das outras imagens */}
+            {appSlides.map(
+              (slide, index) =>
+                index !== activeAppSlide && <link key={index} rel="preload" as="image" href={slide.image} />
+            )}
 
             <div className="flex gap-[1em] absolute bottom-[5em] max-lg:bottom-[-2em]">
               {appSlides.map((_, index) => (
@@ -490,9 +498,15 @@ export default function Home() {
                   alt="Description"
                   width={futureSlides[activeFutureSlide].width}
                   height={futureSlides[activeFutureSlide].height}
+                  priority={activeFutureSlide === 0}
                 />
               </motion.div>
             </AnimatePresence>
+            {/* Preload das outras imagens */}
+            {futureSlides.map(
+              (slide, index) =>
+                index !== activeFutureSlide && <link key={index} rel="preload" as="image" href={slide.image} />
+            )}
 
             <div className="flex bg-slate-200 rounded-[2em] flex-wrap max-lg:text-[0.95em]">
               {futureSlides.map((slide, index) => {
