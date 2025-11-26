@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-br">
+    <html lang="pt-br" className="scroll-smooth">
       <body className={`${rubik.variable} ${sourceSans3.variable} antialiased overflow-x-hidden`}>{children}</body>
     </html>
   );
