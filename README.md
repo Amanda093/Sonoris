@@ -26,7 +26,7 @@ O projeto tem como propósito facilitar a comunicação e promover a inclusão d
 
 ## 📁 Outros repositórios
 
-- <b> [Dispositivo](https://github.com/Chrb09/Sonoris-Raspberry-Pi) </b><br>
+- <b> [Dispositivo](https://github.com/Apolo-Heh/Sonoris-Raspberry-Pi) </b><br>
 - <b> [Aplicativo](https://github.com/Beatriz02020/Sonoris-iot-app-transcricao) </b><br>
 - <b> [Documentação](https://github.com/Beatriz02020/Sonoris-iot-app-transcricao/tree/documentation) </b>
 
@@ -53,7 +53,7 @@ O projeto tem como propósito facilitar a comunicação e promover a inclusão d
     </td>
     </td>
     <td align="center">
-      <a href="https://github.com/Chrb09">
+      <a href="https://github.com/Apolo-Heh">
         <img src="https://avatars.githubusercontent.com/u/132484542?v=4" width="100px;" alt="Carlos - Github"/><br>
         <sub>
             <b>Carlos</b>
