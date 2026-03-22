@@ -611,7 +611,7 @@ export default function Home() {
                   </div>
                   <div className="flex gap-[1em]">
                     <button className="rounded-full cursor-pointer select-none hover:translate-y-[-0.2em] transition-all duration-200 p-[0.1em] bg-white aspect-square shrink-0 text-gray-800 size-[3em]">
-                      <a href="https://github.com/Chrb09">
+                      <a href="https://github.com/Apolo-Heh">
                         <Image className="w-full" src="/Github.png" alt="Github" width={512} height={512} />
                       </a>
                     </button>
